@@ -10,7 +10,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import fixtures.geo.Vector2D;
+import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
+
 import objects.Camera;
 import objects.GameObject;
 import objects.blocks.Block;
@@ -94,7 +95,7 @@ public class World implements GameMode {
 		
 		/* Translation */
 		Vector2D translation = new Vector2D(camera.getX()*blockSize - Game.getPanel().getWidth()/2, camera.getY()*blockSize - Game.getPanel().getHeight()/2);
-		graphics.translate(-translation.x, -translation.y);
+		graphics.translate(-translation.getX(), -translation.getY());
 		
 		/* Objects */
 		for(GameObject object : getVisibleObjects()) {
@@ -104,7 +105,7 @@ public class World implements GameMode {
 		
 		
 		/* Back Translation */
-		graphics.translate(translation.x, translation.y);
+		graphics.translate(translation.getX(), translation.getY());
 		 
 	}
 	
